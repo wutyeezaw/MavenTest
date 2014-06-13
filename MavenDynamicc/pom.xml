@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.workspace.maven</groupId>
+	<artifactId>MavenDynamicc</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MavenDynamicc Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+
+		<!-- configure for servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<!-- build phase start -->
+	<build>
+
+		<finalName>MavenDynamicc</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<!-- configure specific jdk -->
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<!-- jdk configuration for local <plugin> <artifactId>maven-compiler-plugin</artifactId> 
+				<version>3.1</version> <configuration> <fork>true</fork> <executable>C:\Program 
+				Files\Java\jdk1.7.0_45\bin\javac.exe</executable> </configuration> </plugin> -->
+
+
+			<!-- attach source and javadoc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+			<!-- generate source for project -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+
+				<!-- start customize location of output -->
+
+				<!-- <configuration> <outputDirectory>E:/new</outputDirectory> <finalName>maven-source-plugin-2.2.1</finalName> 
+					<attach>true</attach> </configuration> -->
+				<!-- end -->
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- configure for javadoc plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- configure for maven site <plugin> <artifactId>maven-site-plugin</artifactId> 
+				<version>3.3</version> </plugin> -->
+		</plugins>
+
+	</build>
+
+	<!-- report for site -->
+	<reporting>
+		<plugins>
+
+			<!-- Junit report -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+
+			<!-- findbugs report -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<configuration>
+					<threshold>Normal</threshold><!-- High|Normal|Low|Exp|Ignore -->
+					<effort>Default</effort><!-- Min|Default|Max -->
+				</configuration>
+			</plugin>
+
+			<!-- javadoc report -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+
+			</plugin>
+
+		</plugins>
+	</reporting>
+
+</project>
+
+
