@@ -10,7 +10,7 @@
 
 	<dependencies>
 
-		<!-- configure for servlet using api 2.5-->
+		<!-- java servlet for dynamic web development-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
