@@ -10,9 +10,10 @@
 
 	<dependencies>
 
-		<!-- configure for servlet using api 2.5-->
+		<!-- java servlet for dynamic web development-->
 		<!-- commit by wyz	-->
 		<!-- commit by wyz1	-->
+		<test by wyz 8/18>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
